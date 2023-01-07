@@ -33,7 +33,7 @@ router.put('/:id', async (req, res) => {
     try {
         const rol = await rolesModel.update(req.body, {
             where: {
-                pk: req.params.id
+                id: req.params.id
             }
         });
         res.json(rol);
@@ -46,7 +46,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const rol = await rolesModel.destroy({
             where: {
-                pk: req.params.id
+                id: req.params.id
             }
         });
         res.json(rol);

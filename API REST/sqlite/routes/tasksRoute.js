@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
         const rol = await tasksModel.create(req.body);
         res.json(rol);
@@ -33,7 +33,7 @@ router.put('/:id', async (req, res) => {
     try {
         const rol = await tasksModel.update(req.body, {
             where: {
-                pk: req.params.id
+                id: req.params.id
             }
         });
         res.json(rol);
@@ -46,7 +46,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const rol = await tasksModel.destroy({
             where: {
-                pk: req.params.id
+                id: req.params.id
             }
         });
         res.json(rol);
