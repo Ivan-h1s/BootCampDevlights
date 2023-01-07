@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const log = require('./middlewares/log');
+const log = require('./middlewares/logs');
 
 const usersRoute = require('./routes/usersRoute');
 const rolesRoute = require('./routes/rolesRoute');
@@ -20,7 +20,7 @@ app.use('/users', usersRoute);
 app.use('/roles', rolesRoute);
 app.use('/tasks', tasksRoute);
 
-mongoose.connect("mongodb://127.0.0.1:27017/entregaApiRest", (error) => {
+mongoose.connect("mongodb://127.0.0.1:27017/mongoDB", (error) => {
     if(error) {
         console.log("Error al conectar con MongoDB", error);
     } else {

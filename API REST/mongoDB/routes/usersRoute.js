@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    users.findById(req.params.id, (error, user) => {
+    users.find({id: req.params.id}, (error, user) => {
         if(error) {
             res.status(500).send('Error al obtener el usuario.');
         } else {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
     const user = new users(req.body);
     user.save((error, user) => {
         if(error) {
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    users.findByIdAndUpdate(req.params.id, req.body, (error, user) => {
+    users.findOneAndUpdate({id: req.params.id}, req.body, (error, user) => {
         if(error) {
             res.status(500).send('Error al actualizar el usuario');
         } else {
@@ -44,7 +44,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    users.findByIdAndDelete(req.params.id, (error, user) => {
+    users.findOneAndDelete({id: req.params.id}, (error, user) => {
         if(error) {
             res.status(500).send('Error al eliminar el usuario');
         } else {

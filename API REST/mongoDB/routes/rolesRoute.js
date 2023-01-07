@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    roles.findById(req.params.id, (error, rol) => {
+    roles.find({id: req.params.id}, (error, rol) => {
         if(error) {
             res.status(500).send('Error al obtener el rol.');
         } else {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
     const rol = new roles(req.body);
     rol.save((error, rol) => {
         if(error) {
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    roles.findByIdAndUpdate(req.params.id, req.body, (error, rol) => {
+    roles.findOneAndUpdate({id: req.params.id}, req.body, (error, rol) => {
         if(error) {
             res.status(500).send('Error al actualizar el rol');
         } else {
@@ -44,7 +44,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    roles.findByIdAndDelete(req.params.id, (error, rol) => {
+    roles.findOneAndDelete({id: req.params.id}, (error, rol) => {
         if(error) {
             res.status(500).send('Error al eliminar el rol');
         } else {

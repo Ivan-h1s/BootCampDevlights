@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    tasks.findById(req.params.id, (error, task) => {
+    tasks.find({id: req.params.id}, (error, task) => {
         if(error) {
             res.status(500).send('Error al obtener el task.');
         } else {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
     const task = new tasks(req.body);
     task.save((error, task) => {
         if(error) {
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    tasks.findByIdAndUpdate(req.params.id, req.body, (error, task) => {
+    tasks.findOneAndUpdate({id: req.params.id}, req.body, (error, task) => {
         if(error) {
             res.status(500).send('Error al actualizar el task');
         } else {
@@ -44,7 +44,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    tasks.findByIdAndDelete(req.params.id, (error, task) => {
+    tasks.findOneAndDelete({id: req.params.id}, (error, task) => {
         if(error) {
             res.status(500).send('Error al eliminar el task');
         } else {
