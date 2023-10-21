@@ -1,0 +1,15 @@
+version: '2.22.0'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongodbdev
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./dataza:/data/db
+
+volumes:
+  dataza: 
+    driver: local

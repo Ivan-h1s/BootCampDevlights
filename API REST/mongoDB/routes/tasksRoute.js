@@ -22,15 +22,14 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/create', (req, res) => {
+router.post('/create', async (req, res) => {
     const task = new tasks(req.body);
-    task.save((error, task) => {
-        if(error) {
-            res.status(500).send('Error al crear el task');
-        } else {
-            res.send(task);
-        }
-    })
+    try {
+        const savedTask = await task.save();
+        res.status(201).json(savedTask);
+    } catch (error) {
+        res.status(500).send('Error al crear tasks');
+    }
 })
 
 router.put('/:id', (req, res) => {

@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "508aac1b-2d52-477b-bec0-ebf068caf94c",
+		"_postman_id": "b04e267c-fdd3-4bbe-96ae-1ef9d5196646",
 		"name": "api-rest-mongoDB",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29856383"
 	},
 	"item": [
 		{
@@ -12,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"2\",\r\n    \"name\": \"Lali\",\r\n    \"lastName\": \"Madon\",\r\n    \"age\": 26,\r\n    \"address\": \"Terere 123\"\r\n}",
+					"raw": "{\r\n    //\"id\": \"2\",\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"{{$randomLastName}}\",\r\n    \"age\": 30,\r\n    \"address\": \"{{$randomStreetAddress}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,11 +69,23 @@
 		},
 		{
 			"name": "Get users by Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3000/users/2",
+					"raw": "http://localhost:3000/users/6531e36f75e59ec21dba2809",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -80,7 +93,7 @@
 					"port": "3000",
 					"path": [
 						"users",
-						"2"
+						"6531e36f75e59ec21dba2809"
 					]
 				}
 			},
@@ -91,8 +104,17 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3000/users/2",
+					"raw": "http://localhost:3000/users/6531e36f75e59ec21dba2809",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,7 +122,7 @@
 					"port": "3000",
 					"path": [
 						"users",
-						"2"
+						"6531e36f75e59ec21dba2809"
 					]
 				}
 			},
@@ -113,7 +135,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"address\": \"terere 123\"\r\n}",
+					"raw": "{\r\n    //\"address\": \"porahinumas 123\"\r\n    \"age\": 28\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -121,7 +143,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/users/1",
+					"raw": "http://localhost:3000/users/65340e05c04a789d2937e104",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -129,7 +151,7 @@
 					"port": "3000",
 					"path": [
 						"users",
-						"1"
+						"65340e05c04a789d2937e104"
 					]
 				}
 			},
@@ -142,7 +164,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"2\",\r\n    \"name\": \"bailar\",\r\n    \"description\": \"blinding lights, the weeknd\"\r\n}",
+					"raw": "{\r\n    //\"id\": \"2\",\r\n    \"name\": \"bailar\",\r\n    \"description\": \"blinding lights, the weeknd\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
